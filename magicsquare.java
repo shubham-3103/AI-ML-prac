@@ -1,24 +1,27 @@
-public class magicsquare {
+import java.util.Scanner;
+class magicsquare {
     public static void main(String[] args) {
-        int size = 3;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of row/column of square magic square:");
+        int size = sc.nextInt();
         int arr [][] = new int[size][size];
-        for(int i = 0; i<3; i++){
-            for(int j = 0; j<3; j++){
+        for(int i = 0; i<size; i++){
+            for(int j = 0; j<size; j++){
                 arr[i][j]=0;
             }
         }
         int num = 1;
         int row=0;
-        int column = 1;
+        int column = (int) Math.floor(size/2);
         arr[row][column]=num;
 
-        while(num<3*3){
+        while(num<size*size){
             num = num + 1;
             row = row - 1;
             column = column + 1;
             if(row==-1)
-                row=2;
-            if(column==3)
+                row=size-1;
+            if(column==size)
                 column=0;
 
             if(arr[row][column]==0){
@@ -33,9 +36,8 @@ public class magicsquare {
             }
         }
 
-
-        for(int i = 0; i<3; i++){
-            for(int j = 0; j<3; j++){
+        for(int i = 0; i<size; i++){
+            for(int j = 0; j<size; j++){
                 System.out.print(arr[i][j]+" ");
             }
             System.out.println();
