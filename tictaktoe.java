@@ -24,9 +24,6 @@ public class tictaktoe {
         System.out.println("|---|---|---|");
         System.out.println("| "+arr[6]+" | "+arr[7]+" | "+arr[8]+" |");
         System.out.println();
-        if(count==8){
-            System.out.println("done");
-        }
     }
     static boolean flag = true;
     static boolean traverse(){
@@ -44,11 +41,13 @@ public class tictaktoe {
         }
         return flag;
     }
+    static boolean winner = false;
     static void winner(){
         for(int i = 0;i<3;i++){
             if(arr[0+i]=="X" && arr[3+i]=="X" && arr[6+i]=="X" || arr[0+i]=="O" && arr[3+i]=="O" && arr[6+i]=="O"){
                 System.out.println(arr[0+i]+" is WINNER");
                 flag = false;
+                winner = true;
                 break;
             }
         }
@@ -56,23 +55,26 @@ public class tictaktoe {
             if(arr[0+i]=="X" && arr[1+i]=="X" && arr[2+i]=="X" || arr[0+i]=="O" && arr[1+i]=="O" && arr[2+i]=="O"){
                 System.out.println(arr[0+i]+" is WINNER");
                 flag = false;
+                winner = true;
                 break;
             }
         }
         if(arr[0]=="X" && arr[4]=="X" && arr[8]=="X" || arr[0]=="O" && arr[4]=="O" && arr[8]=="O"){
             System.out.println(arr[0]+" is WINNER");
             flag = false;
+            winner = true;
         }
-        if(arr[2]=="X" && arr[4]=="X" && arr[6]=="X" || arr[2]=="O" && arr[4]=="O" && arr[6]=="O"){
+        else if(arr[2]=="X" && arr[4]=="X" && arr[6]=="X" || arr[2]=="O" && arr[4]=="O" && arr[6]=="O"){
             System.out.println(arr[2]+" is WINNER");
             flag = false;
+            winner = true;
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         for(int i=0;i<9;i++){
-            arr[i]= String.valueOf(i) ;
+            arr[i]= String.valueOf(i);
         }
         System.out.println("| "+arr[0]+" | "+arr[1]+" | "+arr[2]+" |");
         System.out.println("|---|---|---|");
@@ -89,6 +91,9 @@ public class tictaktoe {
             logic(sc.nextInt(),symbol);
             symbol++;
             winner();
+        }
+        if(winner==false){
+            System.out.println("DRAW");
         }
     }
 }
