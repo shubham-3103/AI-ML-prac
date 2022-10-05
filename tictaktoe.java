@@ -18,6 +18,7 @@ public class tictaktoe {
             }
         }
         
+        
         System.out.println("| "+arr[0]+" | "+arr[1]+" | "+arr[2]+" |");
         System.out.println("|---|---|---|");
         System.out.println("| "+arr[3]+" | "+arr[4]+" | "+arr[5]+" |");
@@ -70,6 +71,14 @@ public class tictaktoe {
             winner = true;
         }
     }
+    boolean isMoveleft(String [] arr){
+        for(int j=0;j<9;j++){
+            if(arr[j]!="X" || arr[j]!="O")
+            return true;
+        }
+        return false;
+    }
+    
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
