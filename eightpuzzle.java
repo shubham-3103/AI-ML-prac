@@ -1,37 +1,51 @@
-/* package codechef; // don't place package name! */
+import java.util.HashMap;
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+class eightpuzzle{
 
-/* Name of the class has to be "Main" only if the class is public. */
-class eightpuzzle
-{   static int count = 0;
+	static void print(int [][] initialarr){
+		for(int i=0;i<3;i++){
+			for(int j = 0; j<3;j++){
+				System.out.print(initialarr[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
 
-    static int minimum(int a, int b){
-        if(a%3==0 || b%3==0)
-		    return count;
-		else{
-		    if(a>b)
-		        a=Math.abs(a-b);
-		    else if(b>a)
-		        b=Math.abs(a-b);
-		    count++;
-            minimum(a, b);
-	    }
-	    return count;
-    }
-    
+
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		// your code goes here
-		Scanner sc = new Scanner(System.in);
-		int t = sc.nextInt();
-		for(int i=0;i<t;i++){
-		    int a = sc.nextInt();
-		    int b = sc.nextInt();
-		    count=0;
-		    System.out.println(minimum(a,b));
+		//1 up
+		//2 down
+		//3 left
+		//4 right
+		int [][] initialarr = {
+			{1,2,3},
+			{4,7,0},
+			{6,5,8}
+		};
+		int [][] finalarr = {
+			{1,2,3},
+			{4,5,6},
+			{7,8,0}
+		};
+
+		int depth = 0;
+		HashMap <Integer,Integer> map = new HashMap<>();
+		int misplaced = 0;
+		int firstpos, secondpos;
+		for(int i=0;i<initialarr[0].length;i++){
+			for(int j=0;j<finalarr[0].length;j++){
+				if(initialarr[i][j]!=finalarr[i][j])  //misplaced tiles
+					misplaced++;
+			}
+		}
+		for(int i=0;i<initialarr[0].length;i++){
+			for(int j=0;j<finalarr[0].length;j++){
+				if(initialarr[i][j]==0){
+					firstpos=i;
+					secondpos=j;
+				}
+			}
 		}
 	}
 }
