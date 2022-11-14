@@ -10,6 +10,7 @@ class eightpuzzle{
 			System.out.println();
 		}
 	}
+	
 
 
 	public static void main (String[] args) throws java.lang.Exception
@@ -47,5 +48,8 @@ class eightpuzzle{
 				}
 			}
 		}
+		// i j-1 left ,i j+1 right, j i-1 up, j i+1 down
+		
+
 	}
 }
